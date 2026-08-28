@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffd400">
+<title>GIFz — Got It From Zor</title>
+<style>
+:root{--yellow:#ffd400;--grey:#252525;--light:#f1f1ed;--white:#fff;--muted:#777}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--grey);background:var(--light)}
+a{text-decoration:none;color:inherit}button{font:inherit;cursor:pointer}
+header{position:sticky;top:0;z-index:10;background:var(--yellow);border-bottom:3px solid var(--grey);padding:14px 5vw;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:2rem;font-weight:1000;letter-spacing:-2px}.logo small{display:block;font-size:.62rem;letter-spacing:1px}
+nav{display:flex;gap:22px;font-weight:800}.cart{border:2px solid var(--grey);padding:8px 12px;border-radius:99px;font-weight:900}
+.hero{min-height:78vh;padding:8vw 5vw;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;background:var(--yellow)}
+.kicker{font-weight:900;text-transform:uppercase;letter-spacing:2px}.hero h1{font-size:clamp(4rem,10vw,9rem);line-height:.78;margin:15px 0;letter-spacing:-7px}.hero p{font-size:1.3rem;max-width:540px}.btn{display:inline-block;background:var(--grey);color:white;padding:15px 22px;border-radius:4px;font-weight:900;margin-top:10px}.hero-art{min-height:390px;background:var(--grey);display:grid;place-items:center;border:5px solid var(--grey);box-shadow:18px 18px 0 white}.hero-art span{font-size:clamp(5rem,13vw,10rem);font-weight:1000;color:var(--yellow);transform:rotate(-8deg)}
+section{padding:70px 5vw}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}.section-head h2{font-size:3rem;margin:0;letter-spacing:-2px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:white;border:2px solid var(--grey);padding:12px;position:relative}.pic{aspect-ratio:1/1;background:#ddd;display:grid;place-items:center;font-weight:1000;font-size:3rem;color:#aaa}.card h3{margin:14px 0 4px;font-size:1rem}.price{font-weight:900}.tag{position:absolute;top:20px;left:20px;background:var(--yellow);padding:6px 9px;font-size:.75rem;font-weight:900}.why{background:var(--grey);color:white}.why .section-head h2{color:var(--yellow)}.whygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.whybox{border:2px solid #666;padding:25px}.whybox b{color:var(--yellow);font-size:1.5rem}.coming{background:white}.cominggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.comingbox{min-height:190px;background:var(--yellow);border:3px solid var(--grey);padding:25px;display:flex;flex-direction:column;justify-content:end}.comingbox h3{font-size:2rem;margin:0}.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.about h2{font-size:3.5rem;line-height:.9}.quote{background:var(--yellow);border:3px solid var(--grey);padding:35px;font-size:2rem;font-weight:1000;transform:rotate(2deg)}footer{background:var(--yellow);border-top:3px solid var(--grey);padding:35px 5vw;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-weight:800}.drawer{position:fixed;right:-420px;top:0;width:min(420px,100%);height:100%;background:white;z-index:20;padding:25px;border-left:3px solid var(--grey);transition:.25s;box-shadow:-15px 0 40px #0002}.drawer.open{right:0}.drawer h2{margin-top:0}.close{float:right;border:0;background:none;font-size:2rem}.item{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:15px 0}.total{font-size:1.3rem;font-weight:900;margin-top:20px}.checkout{width:100%;background:var(--yellow);border:2px solid var(--grey);padding:14px;font-weight:1000;margin-top:20px}
+@media(max-width:800px){nav{display:none}.hero{grid-template-columns:1fr;min-height:auto;padding-top:70px;padding-bottom:70px}.hero h1{font-size:5rem}.grid{grid-template-columns:repeat(2,1fr)}.whygrid,.cominggrid,.about{grid-template-columns:1fr}.section-head{display:block}.section-head h2{font-size:2.4rem;margin-bottom:12px}}
+</style>
+</head>
+<body>
+<header>
+  <a href="#" class="logo">GIFz</a>
+  <nav><a href="#shop">Shop</a><a href="#about">About</a><a href="#coming">Coming soon</a></nav>
+  <button class="cart" onclick="openCart()">Bag <span id="count">0</span></button>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <h1>FOR BAD<br>BROKE<br>BITCHES.</h1>
+    <p>Jewellery that makes your outfit look expensive without requiring your bank account to participate.</p>
+    <a class="btn" href="#shop">SHOP JEWELLERY →</a>
+  </div>
+  <div class="hero-art"><span>GIFz</span></div>
+</section>
+
+<section id="shop">
+  <div class="section-head"><h2>SHOP THE DAMAGE.</h2><span>Jewellery • 2026</span></div>
+  <div class="grid">
+    <article class="card"><span class="tag">BESTSELLER</span><div class="pic">HOOPS</div><h3>The “I Have Plans” Hoops</h3><div class="price">₦7,500</div><button class="btn" onclick="add('The “I Have Plans” Hoops',7500)">ADD TO BAG</button></article>
+    <article class="card"><div class="pic">CHAIN</div><h3>Main Character Chain</h3><div class="price">₦8,500</div><button class="btn" onclick="add('Main Character Chain',8500)">ADD TO BAG</button></article>
+    <article class="card"><span class="tag">NEW</span><div class="pic">RING</div><h3>Don't Ask Me Where I Got It Ring</h3><div class="price">₦6,000</div><button class="btn" onclick="add('Don’t Ask Me Where I Got It Ring',6000)">ADD TO BAG</button></article>
+    <article class="card"><div class="pic">SET</div><h3>Soft Life Starter Pack</h3><div class="price">₦12,000</div><button class="btn" onclick="add('Soft Life Starter Pack',12000)">ADD TO BAG</button></article>
+  </div>
+</section>
+
+<section class="why">
+  <div class="section-head"><h2>WHY GIFz?</h2></div>
+  <div class="whygrid">
+    <div class="whybox"><b>01</b><h3>LOOK EXPENSIVE.</h3><p>Your outfit deserves a little drama. Your bank balance does not need to know.</p></div>
+    <div class="whybox"><b>02</b><h3>SPEND LESS.</h3><p>Because being a bad bitch shouldn't require financial ruin.</p></div>
+    <div class="whybox"><b>03</b><h3 style="font-size:.8rem">GOT IT FROM ZOR.</h3><p>Someone will ask where you got it. Now you have an answer.</p></div>
+  </div>
+</section>
+
+<section id="coming" class="coming">
+  <div class="section-head"><h2>WE'RE NOT DONE.</h2><span>Coming soon 👀</span></div>
+  <div class="cominggrid">
+    <div class="comingbox"><h3>SCENTS</h3><p>Smell expensive. Stay broke.</p></div>
+    <div class="comingbox"><h3>BAGS</h3><p>The outfit is not going to carry itself.</p></div>
+    <div class="comingbox"><h3>SHOES</h3><p>Because apparently jewellery wasn't enough.</p></div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div><div class="kicker">ABOUT GIFz</div><h2>YOU DON'T NEED MONEY TO LOOK LIKE MONEY.</h2><p>GIFz is for the girls who like nice things, good outfits and looking put together, but also have bills. We get it.</p><p>So we're starting with jewellery that brings the attitude without bringing financial trauma.</p></div>
+  <div class="quote">“Your bank account said no.<br><br>Your outfit said absolutely not.”</div>
+</section>
+</main>
+
+<footer><div>GIFz — Got It From Zor.</div><div>For bad broke bitches.</div><div>Instagram • TikTok • WhatsApp</div></footer>
+
+<aside class="drawer" id="drawer">
+  <button class="close" onclick="closeCart()">×</button><h2>YOUR BAG.</h2><div id="items">Your bag is empty.</div><div class="total" id="total">Total: ₦0</div><button class="checkout" onclick="checkout()">CHECK OUT ON WHATSAPP</button>
+</aside>
+
+<script>
+let bag=[];
+function add(name,price){bag.push({name,price});render();openCart()}
+function render(){document.getElementById('count').textContent=bag.length;document.getElementById('items').innerHTML=bag.length?bag.map((x,i)=>`<div class="item"><span>${x.name}</span><b>₦${x.price.toLocaleString()}</b></div>`).join(''):'Your bag is empty.';document.getElementById('total').textContent='Total: ₦'+bag.reduce((a,x)=>a+x.price,0).toLocaleString()}
+function openCart(){document.getElementById('drawer').classList.add('open')}function closeCart(){document.getElementById('drawer').classList.remove('open')}
+function checkout(){if(!bag.length)return alert('Your bag is empty.');let text='Hi GIFz! I want to order:%0A'+bag.map(x=>`• ${x.name} — ₦${x.price.toLocaleString()}`).join('%0A')+'%0A%0ATotal: ₦'+bag.reduce((a,x)=>a+x.price,0).toLocaleString()+'%0A%0AMy name/address is:';window.open('https://wa.me/?text='+text,'_blank')}
+</script>
+</body>
+</html>
